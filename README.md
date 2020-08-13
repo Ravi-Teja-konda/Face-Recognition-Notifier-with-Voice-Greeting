@@ -8,7 +8,7 @@ face_recognition module
 gTTS
 
 pip install face_recognition  
-https://github.com/ageitgey/face_recognition  
+https://pypi.org/project/face-recognition/  
 
 pip install gTTS  
 https://pypi.org/project/gTTS/  
