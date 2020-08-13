@@ -30,7 +30,7 @@ video_capture = cv2.VideoCapture(0)
 
 print("Loading Application..")
 
-with open('/home/ravi/PYTHON/Store_Face_Encodings/dataset_faces.dat', 'rb') as f:
+with open('dataset_faces.dat', 'rb') as f:
 	all_face_encodings = pickle.load(f)
 
 # Create arrays of known face encodings and their names
@@ -49,15 +49,12 @@ print("Getting camera Ready..\nRecognizing Face..Please be steady..");
 
 time.sleep(2)
 
-#while True:
-    # Grab a single frame of video
+# Grab a single frame of video
 ret, frame = video_capture.read()
 print("Frame Captured..");
 
 # Resize frame of video to 1/4 size for faster face recognition processing
 small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
-#x = datetime.datetime.now()
-#cv2.imwrite('Webcam_'+str(x)+'.jpg',frame)
 
 # Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
 rgb_small_frame = small_frame[:, :, ::-1]
@@ -75,11 +72,6 @@ if process_this_frame:
         matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
         name = "Unknown"
 
-        # # If a match was found in known_face_encodings, just use the first one.
-        # if True in matches:
-        #     first_match_index = matches.index(True)
-        #     name = known_face_names[first_match_index]
-
         # Or instead, use the known face with the smallest distance to the new face
         face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
         best_match_index = np.argmin(face_distances)
@@ -90,10 +82,7 @@ if process_this_frame:
         print(face_names)
 
     face_names_string = " ".join(face_names)
-    #print(face_names_string)
     face_names_string = face_names_string.replace("_" ," ")
-
-    #Send_Push_Notifications(str(face_names_string) , x)
 
     mytext = 'Sueswagatham'+ str(face_names_string)
 
