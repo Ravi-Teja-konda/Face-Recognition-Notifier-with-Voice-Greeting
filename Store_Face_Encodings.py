@@ -8,7 +8,7 @@ from tqdm import tqdm
 all_face_encodings = {}
 
 
-print("Loading know face encodings... \nPlease wait..It may take some momemts....")
+print("Loading known face encodings... \nPlease wait..It may take some momemts....")
 
 
 images = os.listdir('images')
