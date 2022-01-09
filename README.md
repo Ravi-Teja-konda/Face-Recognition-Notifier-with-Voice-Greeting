@@ -4,8 +4,8 @@ This Project is about Recognizing the user face when a Laptop boots and checks i
 
 # Prerequisites:
 
-face_recognition module  
-gTTS
+1. face_recognition module  
+2. gTTS
 
 pip install face_recognition  
 https://pypi.org/project/face-recognition/  
